@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">BetterLayoutWix</string>
+=======
+    <string name="app_name">WixMusic</string>
+>>>>>>> origin/master
 </resources>

@@ -15,4 +15,9 @@
     <color name="error">#dc0000</color>
     <color name="transparentBlue">#80BBDEFB</color>
     <color name="transparentWhite">#80FFFFFF</color>
+<<<<<<< HEAD
+=======
+    <color name="green">#2bef3f</color>
+    <color name="green_dark">#4c8601</color>
+>>>>>>> origin/master
 </resources>

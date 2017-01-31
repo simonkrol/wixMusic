@@ -12,16 +12,22 @@ buildscript {
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 allprojects {
     repositories {
         jcenter()
     }
+<<<<<<< HEAD
     repositories {
         maven {
             url "https://jitpack.io"
         }
     }
+=======
+>>>>>>> origin/master
 }
 
 task clean(type: Delete) {

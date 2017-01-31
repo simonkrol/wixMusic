@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.simon.betterlayoutwix">
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.simon.wixmusic">
+
+>>>>>>> origin/master
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -18,7 +24,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
 
     </application>
 
 </manifest>
+=======
+        <activity android:name=".TimeChoice"
+            android:screenOrientation="portrait">
+        </activity>
+
+    </application>
+
+</manifest>
+>>>>>>> origin/master
