@@ -1,4 +1,4 @@
-package com.example.simon.betterlayoutwix;
+package com.example.simon.BetterLayoutWix2;
 
 import android.media.MediaMetadataRetriever;
 

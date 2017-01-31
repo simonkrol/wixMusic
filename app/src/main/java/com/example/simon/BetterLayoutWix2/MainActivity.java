@@ -1,17 +1,11 @@
-package com.example.simon.betterlayoutwix;
+package com.example.simon.BetterLayoutWix2;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
@@ -20,8 +14,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends Activity implements MediaPlayer.OnCompletionListener

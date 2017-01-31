@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.simon.betterlayoutwix">
-=======
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.simon.wixmusic">
+    package="com.example.simon.BetterLayoutWix2">
 
->>>>>>> origin/master
+
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -16,25 +12,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.example.simon.BetterLayoutWix2.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
     </application>
 
 </manifest>
-=======
-        <activity android:name=".TimeChoice"
-            android:screenOrientation="portrait">
-        </activity>
-
-    </application>
-
-</manifest>
->>>>>>> origin/master

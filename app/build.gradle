@@ -5,11 +5,8 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-<<<<<<< HEAD
         applicationId "com.example.simon.betterlayoutwix"
-=======
         applicationId "com.example.simon.wixmusic"
->>>>>>> origin/master
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
@@ -27,10 +24,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
-<<<<<<< HEAD
     compile 'com.github.ugurtekbas:dialTimePicker:818ca0a698'
-=======
     compile 'com.wnafee:vector-compat:1.0.5'
-
->>>>>>> origin/master
 }

@@ -1,13 +1,7 @@
-package com.example.simon.betterlayoutwix;
+package com.example.simon.BetterLayoutWix2;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.database.Cursor;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
 
 import java.io.File;
 import java.io.FilenameFilter;
