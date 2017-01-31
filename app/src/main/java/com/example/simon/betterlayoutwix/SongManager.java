@@ -1,6 +1,13 @@
 package com.example.simon.betterlayoutwix;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -17,16 +24,23 @@ public class SongManager
     public List<Song> toPlay;
     public int totalTime=0;
     public int totalPlay=0;
+    Context context;
+
     File directory;
 
     public SongManager()
     {
+
         directory= new File(Path);
         if(directory.isDirectory())
         {
             getPlaylist();
+
+
         }
+
     }
+
     public List<Song> getPlaylist()
     {
 
@@ -46,6 +60,7 @@ public class SongManager
 
         return songList;
     }
+
 
     public void sort()
     {
@@ -159,5 +174,6 @@ public class SongManager
             totalPlay+=toPlay.get(i).time;
         }
     }
+
 }
 

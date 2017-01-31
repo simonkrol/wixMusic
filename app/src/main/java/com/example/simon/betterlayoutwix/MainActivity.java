@@ -1,16 +1,27 @@
 package com.example.simon.betterlayoutwix;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends Activity implements MediaPlayer.OnCompletionListener
@@ -18,6 +29,7 @@ public class MainActivity extends Activity implements MediaPlayer.OnCompletionLi
     private int progress=0;
     private ProgressBar progressBar;
     private boolean btnChoice=false;
+    private TimePickerDialog  newTimePicker;
     private boolean reset=true;
     private ImageButton playButton,resetButton,timeButton;
     protected AlphaAnimation fadeIn = new AlphaAnimation(0.0f , 1.0f ) ;
@@ -25,8 +37,11 @@ public class MainActivity extends Activity implements MediaPlayer.OnCompletionLi
     MediaPlayer mp=new MediaPlayer();
     int curSong=0;
     SongManager playList;
+    int totalTime=0;
     int CurrentTime;
     Handler h = new Handler();
+    static final int Dialog_ID=0;
+    int hour_x,minute_x;
     YourClass youRunnable = new YourClass();
     boolean allowed=true;
     protected void onCreate(Bundle savedInstanceState)
@@ -37,12 +52,10 @@ public class MainActivity extends Activity implements MediaPlayer.OnCompletionLi
         playButton = (ImageButton) findViewById(R.id.playButton);
         timeButton = (ImageButton) findViewById(R.id.timeButton);
         resetButton = (ImageButton) findViewById(R.id.resetButton);
-        //help=(ImageButton)findViewById(R.id.help);
         playButton.setImageResource(R.drawable.play_resource);
         resetButton.setImageResource(R.drawable.reset_resource);
         timeButton.setImageResource(R.drawable.time_resource);
         playList = new SongManager();
-
         CurrentTime = 5;
         printSongs(false);
         if(playList.totalTime==0)
@@ -103,10 +116,8 @@ public class MainActivity extends Activity implements MediaPlayer.OnCompletionLi
                 }
                 else
                 {
-                    Intent intent = new Intent(getApplicationContext(), NumberChoiceActivity.class);
-                    intent.putExtra("MTime", (playList.totalTime / 60));
-                    intent.putExtra("Time", CurrentTime);
-                    startActivityForResult(intent, 1);
+                    showDialog(Dialog_ID);
+
 
                 }
 
@@ -125,31 +136,31 @@ public class MainActivity extends Activity implements MediaPlayer.OnCompletionLi
                 Reset();
             }
         });
-        /*help.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View arg0)
-            {
-                Intent intent = new Intent(getApplicationContext(), HelpActivity.class);
-                startActivityForResult(intent,1);
-            }
-        });*/
+
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+
+    protected Dialog onCreateDialog(int id)
     {
-        if (requestCode == 1)
+        boolean ifEnough=(playList.totalTime>=(12*60*60));
+        if(id==Dialog_ID)
         {
-            if (resultCode == Activity.RESULT_OK)
-            {
-                CurrentTime = data.getExtras().getInt("Time");
-                btnChoice = true;
-            }
-            if (resultCode == Activity.RESULT_CANCELED)
-            {
-                //Write your code if there's no result
-            }
+            return new TimePickerDialog(MainActivity.this,TimePickerListener, hour_x,minute_x, ifEnough);
         }
+        return null;
     }
+    protected TimePickerDialog.OnTimeSetListener TimePickerListener = new TimePickerDialog.OnTimeSetListener()
+    {
+        public void onTimeSet(TimePicker view, int hour, int minute)
+        {
+            hour_x=hour;
+            minute_x=minute;
+            CurrentTime=((hour_x*60)+minute_x);
+            btnChoice=true;
+        }
+    };
+
+
 
     protected void invalidPlay(String x)
     {
